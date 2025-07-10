@@ -8,7 +8,6 @@ import java.util.UUID;
 @Getter
 @Data
 @Setter
-@NoArgsConstructor
 @Entity
 @Table(name="\"Currency\"")
 public class Currency {
@@ -19,11 +18,23 @@ public class Currency {
     private String currency;
     @Column(name = "currency_name")
     private String currencyName;
-
+    public Currency(){}
     public Currency(UUID id, String currency, String currencyName) {
         this.id = id;
         this.currency = currency;
         this.currencyName = currencyName;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public String getCurrencyName() {
+        return currencyName;
     }
 
     public String ToString()

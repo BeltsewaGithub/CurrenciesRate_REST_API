@@ -16,27 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MainController
 {
-    /*
-    @Autowired
-    private CatRepository catRepo;
-    @GetMapping("/api/getCat")
-    public String getCat()
-    {
-        Cat cat = new Cat("Barsik", 5);
-        String jsonData = null;
-        try {
-            jsonData = objectMapper.writeValueAsString(cat);
-        } catch (JsonProcessingException e) {
-            System.out.println("Error with cat");
-        }
-        return jsonData;
-    }
-    @PostMapping("/api/postCat")
-    public void addCat(@RequestBody Cat cat)
-    {
-        catRepo.save(cat);
-    }
-    */
     @Autowired
     private CurrencyRepository currencyRepository;
     @Autowired

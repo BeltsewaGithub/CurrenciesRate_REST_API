@@ -1,11 +1,14 @@
 package com.example.demo;
 
+import com.example.demo.entity.Currency;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import org.hibernate.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -27,6 +30,16 @@ public class CurrenciesRateApplication {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+
+		for(Currency i : findAll()){
+			System.out.println(i.getCurrencyName() + " " + i.getCurrency());
+		}
+	}
+	public static List<Currency> findAll() {
+		List<Currency> currencies =
+				(List<Currency>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery(
+						"From Currency").list();
+		return currencies;
 	}
 	public static void fill() throws IOException
 	{
