@@ -9,7 +9,10 @@ import java.util.UUID;
 @Data
 @Setter
 @Entity
-@Table(name="\"Currency\"")
+@Table(name="\"Currency\"", uniqueConstraints = {
+        @UniqueConstraint(
+                columnNames = {"currency", "currency_name"},
+                name="uk_currency")})
 public class Currency {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

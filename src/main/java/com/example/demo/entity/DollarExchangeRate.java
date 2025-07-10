@@ -22,4 +22,20 @@ public class DollarExchangeRate {
     @Column(name = "dollar_rate")
     private Double dollarRate;
     private ZonedDateTime date;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public Double getDollarRate() {
+        return dollarRate;
+    }
+
+    public ZonedDateTime getDate() {
+        return date;
+    }
 }
