@@ -106,8 +106,11 @@ String res = "";
         DollarExchangeRate derTo = currencyToRate.get(0);
         Double dollarRateCurrencyTo = derTo.getDollarRate();
 
+        double value = ratio*(dollarRateCurrencyTo/dollarRateCurrencyFrom);
+        double scale = Math.pow(10, 2);
+        double result = Math.ceil(value * scale) / scale;
         res =
-                ratio + " " + currencyFrom.getCurrency() + " = " + ratio*(dollarRateCurrencyTo/dollarRateCurrencyFrom);
+                ratio + " " + currencyFrom.getCurrency() + " = " + result + " " + currencyTo.getCurrency();
         return res;
     }
 

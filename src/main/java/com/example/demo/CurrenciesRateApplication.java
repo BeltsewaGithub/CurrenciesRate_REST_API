@@ -37,13 +37,6 @@ public class CurrenciesRateApplication {
 //		for(Currency i : Parser.findAll()){
 //			System.out.println(i.getCurrencyName() + " " + i.getCurrency());
 //		}
-		var session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        String hql = "from Currency where currency = :currencyCode";
-
-        Query<Currency> getCurrency = session.createQuery(hql, Currency.class);
-        getCurrency.setParameter("currencyCode", "EUR");
-        getCurrency.list().stream().forEach(a -> System.out.println(a.getCurrencyName()));
-		System.out.println(getCurrency.list().get(0).getCurrencyName());
 
 	}
 
