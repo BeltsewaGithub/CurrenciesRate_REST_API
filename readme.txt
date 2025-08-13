@@ -1,0 +1,1 @@
+REST API котировка валют (связь с базой данных PostgreSQL через ORM hibernate), http запросы реализованы с помощью фреймворка spring
